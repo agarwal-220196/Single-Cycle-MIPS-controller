@@ -1,0 +1,35 @@
+ALU: 1) all non blocking assignments 
+     2) Sub and SUbu same and no checking of greater or lesser 
+     3) Change of SLT W from 1 to 32'd1 
+     4) SRA BUS B >> BUS A to BUS A >> BUS B 
+     5) BusB<<16 to {BusB[15:0],16'd0}
+     6) All non blocking 
+
+ALU Control:
+     1) all non blocking 
+
+DATA Memory: 
+     1) Removed wire tag from input 
+     2)reg [31:0] MEMO[0:255] to reg [7:0] MEMO[128:0] and thus change the read and storing of data 
+     3) address as 31 bits
+     4) used blocking instead of non blocking 
+
+Instruction Memory:
+Same as given by user no changes 
+
+PC: no change, though there are some differences 
+
+Register file: remove intial statements, others seem correct. 
+
+sign exten: not used, check it out later 
+
+Single_cycle_control: 
+     
+1) Rtype: RegWrite changed from 0 to 1 
+2) sw type: memtoreg changed form 0 to 1 but ideally it should be x 
+3) Jump sign extension changed to 1  but ideally it should be x
+4) check out why ori sign extension should be 0 
+5) ALU source 1 for xori 
+6) All delays removed. 
+7) control not added properly. 
+
